@@ -1,0 +1,10 @@
+SSH login without password
+Instructions below work for Linux and Mac machines
+
+1) Generate a pair of authentication keys on the local machine 
+   Run ssh-keygen -t rsa
+2) Connect to the server and create a directory ~/.ssh
+   Run ssh [username]@[hostname] mkdir -p .ssh
+3) Append local machine's public key to the server
+   Run cat .ssh/id_rsa.pub | ssh [username]@[hostname] 'cat >> .ssh/authorized_keys'
+4) Now you can log into [username]@[hostname] from the local machine without password
